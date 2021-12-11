@@ -38,10 +38,10 @@ def main():
 
     try:
         page_source = urllib.request.urlopen(url).read().decode('utf-8')
-    except urllib.error.URLError as e:
-        sys.exit(f'URLError: {e.reason}')
     except urllib.error.HTTPError as e:
         sys.exit(f'HTTPError: {e.code} ({e.reason})')
+    except urllib.error.URLError as e:
+        sys.exit(f'URLError: {e.reason}')
     else:
         soup = bs4.BeautifulSoup(page_source, 'html.parser')
 
