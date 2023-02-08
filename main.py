@@ -45,14 +45,14 @@ def main():
     else:
         soup = bs4.BeautifulSoup(page_source, 'html.parser')
 
-        titles = soup.find_all(class_='post__title_link')
-        authors = soup.find_all(class_='user-info__nickname')
-        dates = soup.find_all(class_='post__time')
+        titles = soup.find_all(class_='tm-article-snippet__title-link')
+        authors = soup.find_all(class_='tm-user-info__username')
+        dates = soup.find_all('time')
 
         rows = [{
             'title': row[0].string,
-            'author': row[1].string,
-            'date': row[2].string}
+            'author': row[1].contents[0].strip(),
+            'date': row[2].get('title')}
             for row in zip(titles, authors, dates)
         ]
 
