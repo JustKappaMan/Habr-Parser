@@ -10,8 +10,8 @@ import bs4
 
 def main():
     cli_parser = argparse.ArgumentParser(
-        description='Parses info about top articles of the last year from Habr.com',
-        epilog='You can redirect CL output to a file using the redirection operator',
+        description='Собирает информацию о топовых статьях на Хабре за последний год',
+        epilog='Используйте оператор перенаправления для управления потоком вывода',
         allow_abbrev=False,
         formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=40)
     )
@@ -19,15 +19,15 @@ def main():
     cli_parser.add_argument(
         '-l',
         '--language',
-        help='set language of articles',
+        help='задаёт язык статей',
         choices=['en', 'ru'],
-        default='en'
+        default='ru'
     )
 
     cli_parser.add_argument(
         '-f',
         '--format',
-        help='set output format',
+        help='задаёт формат вывода',
         choices=['json', 'csv'],
         default='json'
     )
@@ -64,9 +64,9 @@ def main():
                 writer.writeheader()
                 writer.writerows(rows)
             else:
-                sys.exit('Something went wrong! You bypassed CL arguments validation somehow!')
+                sys.exit('Что-то пошло не так! Вы умудрились обойти валидацию ввода!')
         else:
-            sys.exit('Something went wrong! Some titles/authors/dates are missing!')
+            sys.exit('Что-то пошло не так! Некоторые заголовки/авторы/даты отсутствуют!')
 
 
 if __name__ == '__main__':

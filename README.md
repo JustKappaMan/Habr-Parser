@@ -1,7 +1,9 @@
 # Habr Top Articles Info Parser
-Parses info about top articles of the last year from [Habr.com](https://habr.com/)
-## License
-This project is licensed under the MIT License.
-## How To Use
-* Install dependencies from _requirements.txt_
-* Launch `main.py` with `-h` or `--help`
+Собирает информацию о топовых статьях на [Хабре](https://habr.com/) за последний год.
+## Информация о лицензии
+Продукт распространяется под лицензией MIT.
+## Как пользоваться
+* Установите зависимости из _requirements.txt_
+* Запустите `main.py` с флагом `-h` или `--help`
+* Ознакомьтесь с доступными аргументами командной строки
+* Запустите `main.py` с желаемыми аргументами
