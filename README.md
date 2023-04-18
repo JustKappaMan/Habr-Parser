@@ -1,4 +1,6 @@
 # Habr Parser
+![MIT License](https://img.shields.io/github/license/JustKappaMan/Habr-Parser)
+
 Собирает информацию о топовых статьях на [Хабре](https://habr.com/) за последний год.
 ## Информация о лицензии
 Продукт распространяется под лицензией MIT.
