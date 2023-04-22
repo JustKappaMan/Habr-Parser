@@ -58,7 +58,7 @@ def main():
 
         if len(titles) == len(authors) == len(dates):
             if cli_args['format'] == 'json':
-                print(json.dumps(rows, indent=4))
+                print(json.dumps(rows, indent=4, ensure_ascii=False))
             elif cli_args['format'] == 'csv':
                 writer = csv.DictWriter(sys.stdout, fieldnames=['title', 'author', 'date'])
                 writer.writeheader()
