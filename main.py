@@ -50,10 +50,10 @@ def main():
         dates = [el.get('title') for el in soup.find_all('time')]
 
         rows = [{
-            'title': row[0],
-            'author': row[1],
-            'date': row[2]}
-            for row in zip(titles, authors, dates)
+            'title': title,
+            'author': author,
+            'date': date}
+            for title, author, date in zip(titles, authors, dates)
         ]
 
         if len(titles) == len(authors) == len(dates):
