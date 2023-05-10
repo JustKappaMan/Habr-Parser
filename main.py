@@ -11,7 +11,6 @@ import bs4
 def main():
     cli_parser = argparse.ArgumentParser(
         description='Собирает информацию о топовых статьях на Хабре за последний год',
-        epilog='Используйте оператор перенаправления для управления потоком вывода',
         allow_abbrev=False,
         formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=40)
     )
