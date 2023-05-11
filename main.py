@@ -19,7 +19,7 @@ def main():
         '-l',
         '--language',
         help='задаёт язык статей',
-        choices=['en', 'ru'],
+        choices=['ru', 'en'],
         default='ru'
     )
 
