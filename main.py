@@ -12,7 +12,7 @@ def main():
     cli_parser = argparse.ArgumentParser(
         description='Собирает информацию о топовых статьях на Хабре за последний год',
         allow_abbrev=False,
-        formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=40)
+        formatter_class=lambda x: argparse.HelpFormatter(x, max_help_position=40)
     )
 
     cli_parser.add_argument(
