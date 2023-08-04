@@ -1,6 +1,5 @@
 # Habr Parser
 ![MIT License](https://img.shields.io/github/license/JustKappaMan/Habr-Parser)
-![Checked with mypy](https://img.shields.io/badge/mypy-checked-blue)
 ![Code style: black](https://img.shields.io/badge/code%20style-black-black)
 
 Собирает информацию о топовых статьях на [Хабре](https://habr.com/) за последний год.
