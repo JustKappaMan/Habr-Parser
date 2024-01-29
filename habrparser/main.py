@@ -9,9 +9,16 @@ import bs4
 
 
 class HabrParser:
+    """
+    A class to parse top articles info from Habr.
+    """
+
     __slots__ = ("cli_parser", "cli_args", "url", "page_source", "parsing_results")
 
     def __init__(self):
+        """
+        Initialize the parser object with a command-line argument parser and default attribute values.
+        """
         self.cli_parser = argparse.ArgumentParser(
             description="Собирает информацию о топовых статьях на Хабре за последний год",
             allow_abbrev=False,
@@ -33,6 +40,9 @@ class HabrParser:
         self.parsing_results = None
 
     def run(self) -> None:
+        """
+        Run the parser to fetch, parse, and print the top articles info based on the provided command-line arguments.
+        """
         self.cli_args = vars(self.cli_parser.parse_args())
         self.url = f"https://habr.com/{self.cli_args['language']}/top/{self.cli_args['period']}/"
 
@@ -41,6 +51,9 @@ class HabrParser:
         self._print_parsing_results()
 
     def _fetch_page_source(self) -> None:
+        """
+        Fetch the page source of the `self.url`.
+        """
         try:
             self.page_source = urllib.request.urlopen(self.url).read().decode("utf-8")
         except urllib.error.HTTPError as e:
@@ -51,6 +64,9 @@ class HabrParser:
             sys.exit(f"Exception: {e}")
 
     def _parse_page_source(self) -> None:
+        """
+        Parse the fetched page source to extract the top articles info and store it as a dict.
+        """
         soup = bs4.BeautifulSoup(self.page_source, "html.parser")
 
         titles = [el.find("span").string for el in soup.find_all("a", class_="tm-title__link")]
@@ -66,6 +82,9 @@ class HabrParser:
         ]
 
     def _print_parsing_results(self) -> None:
+        """
+        Print the parsing results in the specified format.
+        """
         if self.cli_args["format"] == "json":
             print(json.dumps(self.parsing_results, indent=4, ensure_ascii=False))
         elif self.cli_args["format"] == "csv":
