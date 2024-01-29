@@ -6,9 +6,9 @@
 
 ## Как пользоваться
 * Установите [зависимости](requirements.txt)
-* Запустите `main.py` с флагом `-h` или `--help`
+* Запустите `habrparser` или `main.py` с флагом `--help` или `-h`
 * Ознакомьтесь с доступными аргументами командной строки
-* Запустите `main.py` с желаемыми аргументами
+* Повторите запуск, указав желаемые аргументы
 
 ## Благодарность
 * [JetBrains](https://www.jetbrains.com) за [Open Source Development лицензию](https://www.jetbrains.com/community/opensource) на их продукты
