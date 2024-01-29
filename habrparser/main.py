@@ -19,15 +19,22 @@ class HabrParser:
 
         self.cli_parser.add_argument("-l", "--language", help="язык статей", choices=["ru", "en"], default="ru")
         self.cli_parser.add_argument("-f", "--format", help="формат вывода", choices=["json", "csv"], default="json")
-        self.cli_args = None
+        self.cli_parser.add_argument(
+            "-p",
+            "--period",
+            help="временной диапазон статей",
+            choices=["daily", "weekly", "monthly", "yearly", "alltime"],
+            default="daily",
+        )
 
         self.url = None
+        self.cli_args = None
         self.page_source = None
         self.parsing_results = None
 
     def run(self) -> None:
         self.cli_args = vars(self.cli_parser.parse_args())
-        self.url = f"https://habr.com/{self.cli_args['language']}/top/yearly/"
+        self.url = f"https://habr.com/{self.cli_args['language']}/top/{self.cli_args['period']}/"
 
         self._fetch_page_source()
         self._parse_page_source()
