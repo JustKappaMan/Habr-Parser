@@ -6,7 +6,7 @@ import urllib.request
 
 import bs4
 
-from .utils import parse_cli_args
+from habrparser.utils import parse_cli_args
 
 
 class HabrParser:

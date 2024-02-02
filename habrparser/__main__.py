@@ -1,5 +1,5 @@
-from .main import HabrParser
-from .utils import parse_cli_args
+from habrparser.main import HabrParser
+from habrparser.utils import parse_cli_args
 
 
 if __name__ == "__main__":
