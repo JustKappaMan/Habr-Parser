@@ -10,13 +10,13 @@ def parse_cli_args() -> dict:
         allow_abbrev=False,
     )
 
-    parser.add_argument("-l", "--language", help="articles language", choices=["ru", "en"], default="ru")
-    parser.add_argument("-f", "--format", help="output format", choices=["json", "csv"], default="json")
+    parser.add_argument("-l", "--language", help="articles language", choices=("ru", "en"), default="ru")
+    parser.add_argument("-f", "--format", help="output format", choices=("json", "csv"), default="json")
     parser.add_argument(
         "-p",
         "--period",
         help="publication date range",
-        choices=["daily", "weekly", "monthly", "yearly", "alltime"],
+        choices=("daily", "weekly", "monthly", "yearly", "alltime"),
         default="daily",
     )
 

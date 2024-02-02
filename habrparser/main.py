@@ -72,7 +72,7 @@ class HabrParser:
         if self.format == "json":
             print(json.dumps(self.parsing_results, indent=4, ensure_ascii=False))
         elif self.format == "csv":
-            writer = csv.DictWriter(sys.stdout, fieldnames=["title", "author", "pub_date"])
+            writer = csv.DictWriter(sys.stdout, fieldnames=("title", "author", "pub_date"))
             writer.writeheader()
             writer.writerows(self.parsing_results)
 
