@@ -2,16 +2,15 @@
 ![MIT License](https://img.shields.io/github/license/JustKappaMan/Habr-Parser)
 ![Code style: black](https://img.shields.io/badge/code%20style-black-black)
 
-Собирает информацию о топовых статьях на [Хабре](https://habr.com/) за последний год.
+Parse info about the top articles on [Habr.com](https://habr.com) for a given period of time.
 
-## Как пользоваться
-* Установите [зависимости](requirements.txt)
-* Запустите `habrparser` или `main.py` с флагом `--help` или `-h`
-* Ознакомьтесь с доступными аргументами командной строки
-* Повторите запуск, указав желаемые аргументы
+## How to Use
+* Install [dependencies](requirements.txt)
+* `python3 -m habrparser [OPTION]...`
 
-## Благодарность
-* [JetBrains](https://www.jetbrains.com) за [Open Source Development лицензию](https://www.jetbrains.com/community/opensource) на их продукты
+## Credits
+Big thanks to:
+* [JetBrains](https://www.jetbrains.com) for [Open Source Development лицензию](https://www.jetbrains.com/community/opensource)
 
-## Информация о лицензии
-Продукт распространяется под лицензией MIT.
+## License
+This project is licensed under the MIT License.
