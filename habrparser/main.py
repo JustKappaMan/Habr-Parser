@@ -22,13 +22,17 @@ class HabrParser:
         self.page_source = None
         self.parsing_results = None
 
-    def run(self) -> None:
+    def run(self, print_results: bool = False) -> list:
         """
         Run the entire process of fetching, parsing, and printing the info.
         """
         self._fetch_page_source()
         self._parse_page_source()
-        self._print_parsing_results()
+
+        if print_results:
+            self._print_parsing_results()
+
+        return self.parsing_results
 
     def _fetch_page_source(self) -> None:
         """
@@ -77,4 +81,4 @@ class HabrParser:
 
 if __name__ == "__main__":
     habr_parser = HabrParser(**parse_cli_args())
-    habr_parser.run()
+    habr_parser.run(print_results=True)
