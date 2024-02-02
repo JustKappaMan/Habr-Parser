@@ -17,9 +17,6 @@ class HabrParser:
     __slots__ = ("url", "format", "page_source", "parsing_results")
 
     def __init__(self, language: str = "ru", format: str = "json", period: str = "daily"):
-        """
-        Initialize the parser object with a command-line argument parser and default attribute values.
-        """
         self.url = f"https://habr.com/{language}/top/{period}/"
         self.format = format
         self.page_source = None
@@ -27,7 +24,7 @@ class HabrParser:
 
     def run(self) -> None:
         """
-        Run the parser to fetch, parse, and print the top articles info based on the provided command-line arguments.
+        Run the entire process of fetching, parsing, and printing the info.
         """
         self._fetch_page_source()
         self._parse_page_source()
@@ -57,7 +54,7 @@ class HabrParser:
         pub_dates = [el.get("title") for el in soup.find_all("time")]
 
         if not (len(titles) == len(authors) == len(pub_dates)):
-            sys.exit("Что-то пошло не так! Некоторые заголовки/авторы/даты отсутствуют.")
+            sys.exit("Something went wrong! Some data is missing.")
 
         self.parsing_results = [
             {"title": title, "author": author, "pub_date": pub_date}
@@ -75,7 +72,7 @@ class HabrParser:
             writer.writeheader()
             writer.writerows(self.parsing_results)
         else:
-            sys.exit("Что-то пошло не так! Вы умудрились обойти валидацию ввода.")
+            sys.exit("Something went wrong! You've managed to bypass input validation.")
 
 
 if __name__ == "__main__":
