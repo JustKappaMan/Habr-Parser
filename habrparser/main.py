@@ -51,7 +51,7 @@ class HabrParser:
         """
         Parse the fetched page source to extract the top articles info and store it as a dict.
         """
-        soup = bs4.BeautifulSoup(self.page_source, "html.parser")
+        soup = bs4.BeautifulSoup(self.page_source, "lxml")
 
         titles = [el.find("span").string for el in soup.find_all("a", class_="tm-title__link")]
         authors = [el.contents[0].strip() for el in soup.find_all("a", class_="tm-user-info__username")]
