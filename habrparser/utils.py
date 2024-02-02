@@ -6,7 +6,7 @@ def parse_cli_args() -> dict:
     Parse command line arguments that will be passed to HabrParser.
     """
     parser = argparse.ArgumentParser(
-        description="Collect info about the top articles on Habr for a given period of time",
+        description="Parse info about the top articles on Habr for a given period of time",
         allow_abbrev=False,
     )
 

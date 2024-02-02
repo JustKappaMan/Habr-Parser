@@ -17,6 +17,9 @@ class HabrParser:
     __slots__ = ("url", "format", "page_source", "parsing_results")
 
     def __init__(self, language: str = "ru", format: str = "json", period: str = "daily"):
+        """
+        Initialize the HabrParser instance with given params.
+        """
         self.url = f"https://habr.com/{language}/top/{period}/"
         self.format = format
         self.page_source = None
