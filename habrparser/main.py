@@ -75,8 +75,6 @@ class HabrParser:
             writer = csv.DictWriter(sys.stdout, fieldnames=["title", "author", "pub_date"])
             writer.writeheader()
             writer.writerows(self.parsing_results)
-        else:
-            sys.exit("Something went wrong! You've managed to bypass input validation.")
 
 
 if __name__ == "__main__":
