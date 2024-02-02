@@ -1,10 +1,10 @@
 import sys
 import csv
 import json
-import urllib.error
-import urllib.request
+from urllib.request import urlopen
+from urllib.error import HTTPError, URLError
 
-import bs4
+from bs4 import BeautifulSoup
 
 from habrparser.utils import parse_cli_args
 
@@ -39,10 +39,10 @@ class HabrParser:
         Fetch the page source of the `self.url`.
         """
         try:
-            self.page_source = urllib.request.urlopen(self.url).read().decode("utf-8")
-        except urllib.error.HTTPError as e:
+            self.page_source = urlopen(self.url).read().decode("utf-8")
+        except HTTPError as e:
             sys.exit(f"HTTPError: {e.code} ({e.reason})")
-        except urllib.error.URLError as e:
+        except URLError as e:
             sys.exit(f"URLError: {e.reason}")
         except (Exception,) as e:
             sys.exit(f"Exception: {e}")
@@ -51,7 +51,7 @@ class HabrParser:
         """
         Parse the fetched page source to extract the top articles info and store it as a dict.
         """
-        soup = bs4.BeautifulSoup(self.page_source, "lxml")
+        soup = BeautifulSoup(self.page_source, "lxml")
 
         titles = [el.find("span").string for el in soup.find_all("a", class_="tm-title__link")]
         authors = [el.contents[0].strip() for el in soup.find_all("a", class_="tm-user-info__username")]
