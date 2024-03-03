@@ -5,9 +5,9 @@
 Parse info about the top articles on [Habr.com](https://habr.com) for a given period of time.
 
 ## How to Use
-Install [dependencies](requirements.txt)
+Install dependencies.
 
-Either as script:
+Use it either as script:
 ```shell
 python3 -m habrparser [OPTION]...
 ```
