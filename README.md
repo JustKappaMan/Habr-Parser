@@ -21,7 +21,6 @@ result = parser.run()
 ```
 
 ## Credits
-Big thanks to:
 * [JetBrains](https://www.jetbrains.com) for [Open Source Development license](https://www.jetbrains.com/community/opensource)
 
 ## License
