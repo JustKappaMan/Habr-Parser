@@ -14,14 +14,14 @@ class HabrParser:
     A class to parse top articles info from Habr.
     """
 
-    __slots__ = ("url", "format", "page_source", "parsing_results")
+    __slots__ = ("url", "fmt", "page_source", "parsing_results")
 
-    def __init__(self, language: str = "ru", format: str = "json", period: str = "daily"):
+    def __init__(self, language: str = "ru", fmt: str = "json", period: str = "daily"):
         """
         Initialize the HabrParser instance with given params.
         """
         self.url = f"https://habr.com/{language}/top/{period}/"
-        self.format = format
+        self.fmt = fmt
         self.page_source = None
         self.parsing_results = None
 
@@ -72,9 +72,9 @@ class HabrParser:
         """
         Print the parsing results in the specified format.
         """
-        if self.format == "json":
+        if self.fmt == "json":
             print(json.dumps(self.parsing_results, indent=4, ensure_ascii=False))
-        elif self.format == "csv":
+        elif self.fmt == "csv":
             writer = csv.DictWriter(sys.stdout, fieldnames=("title", "author", "pub_date"))
             writer.writeheader()
             writer.writerows(self.parsing_results)
